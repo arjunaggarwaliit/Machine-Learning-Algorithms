@@ -41,21 +41,6 @@ This repository demonstrates the theoretical foundations and practical implement
 
 ---
 
-## Repository Structure
-
-```
-Machine-Learning-Algorithms/
-├── notebooks/
-│   ├── Lab1_PAC_Learnability_Regression.ipynb
-│   └── Lab2_Classification_Models.ipynb
-├── reports/
-│   ├── ML_LAB1.pdf
-│   └── 2024AIB1289_LAB2_Report.pdf
-├── README.md
-└── LICENSE
-```
-
----
 
 ## Lab 1: PAC Learnability and Regression
 
