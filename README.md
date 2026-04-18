@@ -1,6 +1,6 @@
 # Machine Learning Algorithms
 
-[![GitHub license](https://img.shields.io/github/license/arjunaggarwaliit/Machine-Learning-Algorithms)](https://github.com/arjunaggarwaliit/Machine-Learning-Algorithms/blob/main/LICENSE)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 A comprehensive collection of machine learning algorithms implemented from scratch in Python, accompanied by detailed experimental analysis. This repository contains Jupyter notebooks covering fundamental concepts in statistical learning theory, linear models, decision trees, and support vector machines. Each implementation is validated through rigorous experiments on synthetic and real-world datasets, with results documented in the accompanying lab reports.
