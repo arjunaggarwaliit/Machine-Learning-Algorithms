@@ -44,8 +44,6 @@ This repository demonstrates the theoretical foundations and practical implement
 
 ## Lab 1: PAC Learnability and Regression
 
-*Full report: [ML_LAB1.pdf](reports/ML_LAB1.pdf)*
-
 ### Task 1: Threshold Hypotheses
 
 Implementation of one-dimensional threshold classifiers under the PAC learning framework.
@@ -81,8 +79,6 @@ PAC learning of axis-aligned rectangle classifiers in two dimensions.
 ---
 
 ## Lab 2: Classification Models
-
-*Full report: [2024AIB1289_LAB2_Report.pdf](reports/2024AIB1289_LAB2_Report.pdf)*
 
 ### Task 1: Logistic Regression Variants
 
