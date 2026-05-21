@@ -159,7 +159,6 @@ Implementation of CNN architectures for image classification tasks.
 Implementation of RNN and LSTM architectures for sequence modelling tasks.
 
 - **Vanilla RNN**: Manual implementation of recurrent hidden states; analysis of vanishing gradient problem across long sequences
-- **LSTM**: Full implementation of forget, input, and output gates; comparison with vanilla RNN on long-range dependency tasks
 - **Sequence Tasks**: Time-series prediction and text generation experiments demonstrating temporal modelling capability
 - **Gradient Analysis**: Visualisation of gradient norms across time steps; empirical confirmation of vanishing/exploding gradients
 - **Hyperparameter Study**: Hidden size, number of layers, sequence length, and teacher forcing ratio
@@ -206,21 +205,6 @@ Open the corresponding notebook:
 - **`Neural Networks, CNN, RNN/Lab3_Neural_Networks_CNN_RNN.ipynb`** — Implementation of feedforward networks, CNNs, and RNNs with deep learning experiments.
 
 Each notebook contains executable cells with detailed comments and visualisation code. Results can be reproduced by running all cells sequentially.
-
----
-
-## Results and Key Findings
-
-- **Sample Complexity**: Practical sample requirements are often 5–10x smaller than worst-case theoretical bounds for well-behaved distributions.
-- **Ordinal Regression**: For ordered targets, ordinal logistic regression significantly outperforms standard multiclass approaches (94.80% vs 88.73%).
-- **Regularisation**: L1 regularisation provides interpretable feature selection without sacrificing predictive performance; Dropout is the most effective regulariser for neural networks.
-- **Bias-Variance**: Optimal polynomial degree for the exponential test function was M = 4–5, balancing underfitting and overfitting.
-- **Ensemble Methods**: Random forests reduce variance compared to single decision trees, improving stability without increasing bias.
-- **Kernel SVMs**: The RBF kernel uses more support vectors than the polynomial kernel, indicating a more complex decision boundary.
-- **Deep vs. Shallow Networks**: Deeper architectures learn hierarchical representations more effectively, but are prone to overfitting without Dropout or Batch Normalisation.
-- **CNN Feature Learning**: Learned convolutional filters in early layers respond to low-level features (edges, textures); deeper layers capture semantic patterns.
-- **LSTM vs. RNN**: LSTMs consistently outperform vanilla RNNs on tasks requiring long-range temporal dependencies, confirming the practical significance of gating mechanisms.
-
 ---
 
 ## License
