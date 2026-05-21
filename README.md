@@ -1,9 +1,8 @@
 # Machine Learning Algorithms
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-A comprehensive collection of machine learning algorithms implemented from scratch in Python, accompanied by detailed experimental analysis. This repository contains Jupyter notebooks covering fundamental concepts in statistical learning theory, linear models, decision trees, and support vector machines. Each implementation is validated through rigorous experiments on synthetic and real-world datasets, with results documented in the accompanying lab reports.
+A comprehensive collection of machine learning algorithms implemented from scratch in Python, accompanied by detailed experimental analysis. This repository contains Jupyter notebooks covering fundamental concepts in statistical learning theory, linear models, decision trees, support vector machines, and deep learning architectures including Neural Networks, CNNs, and RNNs. Each implementation is validated through rigorous experiments on synthetic and real-world datasets, with results documented in the accompanying lab reports.
 
 ---
 
@@ -19,6 +18,10 @@ A comprehensive collection of machine learning algorithms implemented from scrat
   - [Task 1: Logistic Regression Variants](#task-1-logistic-regression-variants)
   - [Task 2: Decision Trees](#task-2-decision-trees)
   - [Task 3: Support Vector Machines](#task-3-support-vector-machines)
+- [Lab 3: Neural Networks, CNN, and RNN](#lab-3-neural-networks-cnn-and-rnn)
+  - [Task 1: Feedforward Neural Networks](#task-1-feedforward-neural-networks)
+  - [Task 2: Convolutional Neural Networks](#task-2-convolutional-neural-networks)
+  - [Task 3: Recurrent Neural Networks](#task-3-recurrent-neural-networks)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Results and Key Findings](#results-and-key-findings)
@@ -29,18 +32,34 @@ A comprehensive collection of machine learning algorithms implemented from scrat
 
 ## Overview
 
-This repository demonstrates the theoretical foundations and practical implementations of core machine learning algorithms. The code is written entirely from scratch, relying only on NumPy for numerical operations and Matplotlib/Seaborn for visualisation. The accompanying lab reports (PDF) provide detailed mathematical derivations, experimental methodology, and analysis of results.
+This repository demonstrates the theoretical foundations and practical implementations of core machine learning algorithms, progressively building from classical statistical learning theory up to modern deep learning architectures. The code is written from scratch, relying primarily on NumPy for numerical operations and Matplotlib/Seaborn for visualisation, with PyTorch used for deep learning experiments in Lab 3. The accompanying lab reports (PDF) provide detailed mathematical derivations, experimental methodology, and analysis of results.
 
 **Key Features:**
-- Pure Python/NumPy implementations of algorithms
+
+- Pure Python/NumPy implementations of classical ML algorithms
+- PyTorch-based deep learning implementations (Neural Networks, CNN, RNN)
 - Comprehensive experimental analysis of bias-variance tradeoffs
 - Study of sample complexity and generalisation bounds
-- Comparison of regularisation techniques (L1, L2)
+- Comparison of regularisation techniques (L1, L2, Dropout, Batch Normalisation)
 - Analysis of kernel methods and hyperparameter effects
+- End-to-end deep learning pipelines for image classification and sequence modelling
 - Clean, well-documented code with visualisation utilities
 
 ---
 
+## Repository Structure
+
+```
+Machine-Learning-Algorithms/
+├── Regression & PAC Bounds/          # Lab 1 notebooks and data
+├── Classification Models/            # Lab 2 notebooks and data
+├── Neural Networks, CNN, RNN/        # Lab 3 notebooks and data
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
+
+---
 
 ## Lab 1: PAC Learnability and Regression
 
@@ -51,7 +70,7 @@ Implementation of one-dimensional threshold classifiers under the PAC learning f
 - **Data Generation**: Two Gaussian distributions (class 1: N(3,1), class 0: N(4.5,1))
 - **Empirical Risk Minimisation (ERM)**: Search over midpoints between data points
 - **Optimal Threshold**: Analytical derivation shows Bayes optimal threshold at 3.75 with irreducible error 22.66%
-- **Sample Complexity**: Empirical analysis of convergence to Bayes error, demonstrating that 80-100 samples achieve epsilon = 0.01 accuracy
+- **Sample Complexity**: Empirical analysis of convergence to Bayes error, demonstrating that 80–100 samples achieve epsilon = 0.01 accuracy
 - **Theoretical Analysis**: VC dimension of threshold functions (VCdim = 2) and corresponding sample complexity bounds
 
 ### Task 2: Polynomial Regression
@@ -64,14 +83,14 @@ Comprehensive analysis of polynomial regression using both analytical and stocha
 - **Regularisation**: Ridge (L2) and Lasso (L1) regression with cross-validated lambda selection
 - **Runtime Analysis**: Scaling behaviour with sample size n and polynomial degree M
 - **Sample Complexity**: Empirical determination of minimum n to achieve MSE < 0.05 for varying M
-- **Non-Realizable Setting**: Analysis with Poisson noise, demonstrating convergence to minimum achievable risk
+- **Non-Realisable Setting**: Analysis with Poisson noise, demonstrating convergence to minimum achievable risk
 
 ### Task 3: Rectangular Hypotheses
 
 PAC learning of axis-aligned rectangle classifiers in two dimensions.
 
-- **Hypothesis Class**: Rectangles [0, a] x [b, 1] on unit square
-- **ERM Implementation**: Search over O(n^2) data-induced thresholds
+- **Hypothesis Class**: Rectangles [0, a] x [b, 1] on the unit square
+- **ERM Implementation**: Search over O(n²) data-induced thresholds
 - **Convergence Analysis**: True risk vs. sample size for n in {10, 20, 50, 100, 200, 500, 1000}
 - **Sample Complexity Bounds**: Comparison of theoretical VC bounds (n ~ 2000) with empirical requirements (n ~ 200)
 - **Agnostic Setting**: Learning with 20% label noise; analysis of irreducible error and consistency guarantees
@@ -111,6 +130,43 @@ One-vs-One (OVO) SVM implementation with linear and kernel variants.
 
 ---
 
+## Lab 3: Neural Networks, CNN, and RNN
+
+### Task 1: Feedforward Neural Networks
+
+From-scratch and PyTorch implementations of multi-layer perceptrons for classification and regression.
+
+- **Architecture Design**: Fully connected networks with configurable hidden layers, neurons, and activation functions (ReLU, Sigmoid, Tanh)
+- **Backpropagation**: Manual derivation and implementation of gradient computation via chain rule
+- **Optimisers**: Comparison of SGD, SGD with momentum, and Adam; analysis of convergence speed and stability
+- **Regularisation**: Dropout and L2 weight decay; impact on overfitting and generalisation
+- **Batch Normalisation**: Effect on training stability and convergence rate
+- **Hyperparameter Study**: Learning rate schedules, batch size effects, and network depth vs. width tradeoffs
+
+### Task 2: Convolutional Neural Networks
+
+Implementation of CNN architectures for image classification tasks.
+
+- **Convolutional Layers**: Manual implementation of 2D convolution, padding, and stride; learned filter visualisation
+- **Pooling Operations**: Max pooling and average pooling; effect on spatial dimensionality and translation invariance
+- **Architecture Variants**: Shallow custom CNNs vs. deeper LeNet-style architectures; analysis of receptive fields
+- **Data Augmentation**: Random cropping, horizontal flipping, and normalisation to improve generalisation
+- **Training Pipeline**: End-to-end training on image datasets with learning curves, accuracy/loss tracking, and confusion matrices
+- **Feature Map Visualisation**: Intermediate activation maps showing hierarchical feature extraction
+
+### Task 3: Recurrent Neural Networks
+
+Implementation of RNN and LSTM architectures for sequence modelling tasks.
+
+- **Vanilla RNN**: Manual implementation of recurrent hidden states; analysis of vanishing gradient problem across long sequences
+- **LSTM**: Full implementation of forget, input, and output gates; comparison with vanilla RNN on long-range dependency tasks
+- **Sequence Tasks**: Time-series prediction and text generation experiments demonstrating temporal modelling capability
+- **Gradient Analysis**: Visualisation of gradient norms across time steps; empirical confirmation of vanishing/exploding gradients
+- **Hyperparameter Study**: Hidden size, number of layers, sequence length, and teacher forcing ratio
+- **Evaluation Metrics**: Perplexity for language modelling, MSE for regression tasks
+
+---
+
 ## Installation
 
 1. Clone the repository:
@@ -132,20 +188,22 @@ source venv/bin/activate   # On Windows: venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
+
 ---
 
 ## Usage
 
-Navigate to the `notebooks/` directory and launch Jupyter:
+Navigate to the desired lab directory and launch Jupyter:
 
 ```bash
 jupyter notebook
 ```
 
-Open either notebook:
+Open the corresponding notebook:
 
-- **Lab1_PAC_Learnability_Regression.ipynb**: Experiments on threshold functions, polynomial regression, and rectangular hypotheses.
-- **Lab2_Classification_Models.ipynb**: Implementation of logistic regression variants, decision trees, and SVMs.
+- **`Regression & PAC Bounds/Lab1_PAC_Learnability_Regression.ipynb`** — Experiments on threshold functions, polynomial regression, and rectangular hypotheses.
+- **`Classification Models/Lab2_Classification_Models.ipynb`** — Implementation of logistic regression variants, decision trees, and SVMs.
+- **`Neural Networks, CNN, RNN/Lab3_Neural_Networks_CNN_RNN.ipynb`** — Implementation of feedforward networks, CNNs, and RNNs with deep learning experiments.
 
 Each notebook contains executable cells with detailed comments and visualisation code. Results can be reproduced by running all cells sequentially.
 
@@ -153,12 +211,15 @@ Each notebook contains executable cells with detailed comments and visualisation
 
 ## Results and Key Findings
 
-- **Sample Complexity**: Practical sample requirements are often 5-10x smaller than worst-case theoretical bounds for well-behaved distributions.
+- **Sample Complexity**: Practical sample requirements are often 5–10x smaller than worst-case theoretical bounds for well-behaved distributions.
 - **Ordinal Regression**: For ordered targets, ordinal logistic regression significantly outperforms standard multiclass approaches (94.80% vs 88.73%).
-- **Regularisation**: L1 regularisation provides interpretable feature selection without sacrificing predictive performance.
-- **Bias-Variance**: Optimal polynomial degree for the exponential test function was M = 4-5, balancing underfitting and overfitting.
+- **Regularisation**: L1 regularisation provides interpretable feature selection without sacrificing predictive performance; Dropout is the most effective regulariser for neural networks.
+- **Bias-Variance**: Optimal polynomial degree for the exponential test function was M = 4–5, balancing underfitting and overfitting.
 - **Ensemble Methods**: Random forests reduce variance compared to single decision trees, improving stability without increasing bias.
 - **Kernel SVMs**: The RBF kernel uses more support vectors than the polynomial kernel, indicating a more complex decision boundary.
+- **Deep vs. Shallow Networks**: Deeper architectures learn hierarchical representations more effectively, but are prone to overfitting without Dropout or Batch Normalisation.
+- **CNN Feature Learning**: Learned convolutional filters in early layers respond to low-level features (edges, textures); deeper layers capture semantic patterns.
+- **LSTM vs. RNN**: LSTMs consistently outperform vanilla RNNs on tasks requiring long-range temporal dependencies, confirming the practical significance of gating mechanisms.
 
 ---
 
@@ -170,8 +231,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-**Arjun Aggarwal**  
-Roll No: 2024AIB1289  
+**Arjun Aggarwal**
+Roll No: 2024AIB1289
 GitHub: [@arjunaggarwaliit](https://github.com/arjunaggarwaliit)
 
 For questions or collaboration, please open an issue on the repository.
