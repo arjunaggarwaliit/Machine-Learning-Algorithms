@@ -204,7 +204,7 @@ Open the corresponding notebook:
 - **`Classification Models/Lab2_Classification_Models.ipynb`** — Implementation of logistic regression variants, decision trees, and SVMs.
 - **`Neural Networks, CNN, RNN/Lab3_Neural_Networks_CNN_RNN.ipynb`** — Implementation of feedforward networks, CNNs, and RNNs with deep learning experiments.
 
-Each notebook contains executable cells with detailed comments and visualisation code. Results can be reproduced by running all cells sequentially.
+- Each notebook contains executable cells with detailed comments and visualisation code. Results can be reproduced by running all cells sequentially.
 ---
 
 ## License
